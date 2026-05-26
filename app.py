@@ -38,7 +38,6 @@ def split_chunks(text, chunk_size=500, overlap=50):
 
 
 def store_chunks(chunks):
-    client.delete_collection("pdf_chunks")
     collection = client.get_or_create_collection("pdf_chunks")
     for i, chunk in enumerate(chunks):
         embedding = model.encode(chunk).tolist()
